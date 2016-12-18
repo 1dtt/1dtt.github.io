@@ -3,13 +3,13 @@
 #
 
 # Name of your site (displayed in the header)
-name: eptwi
+name: 1dtt
 
 # Short bio or description (displayed in the header)
 description: Redémarrer
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://github.com/eptwi/eptwi.github.io/blob/master/images/avatar.jpg?raw=true
+avatar: https://github.com/1dtt/1dtt.github.io/blob/master/images/avatar.jpg?raw=true
 
 #
 # Flags below are optional
@@ -21,7 +21,7 @@ footer-links:
   email:
   facebook:
   flickr:
-  github: eptwi
+  github: 1dtt
   instagram:
   linkedin:
   pinterest:
