@@ -98,7 +98,7 @@ PNO('P1')
 
 là một lời gọi `PNO` selector, và nó trả về một part number: là mã bộ phận được biểu diễn bởi chuỗi ký tự `'P1'`. Nói cách khác, hai `SNO` và `PNO` selectors hoạt động bằng cách *chuyển đổi* (*convert*) một giá trị CHAR thành một giá trị `SNO` và `PNO` tương ứng.
 
-Trờ lại so sánh `S.SNO = 'X4'`. Hai toán hạng ở đây có kiểu khác nhau (`SNO` và CHAR). Vì chúng có kiểu khác nhau, nên chắc chắn không bằng nhau. Nhưng hệ thống đã đủ thông minh để tự định nghĩa một toán tử&mdash;`SNO` selector&mdash;thực hiện việc chuyển đổi CHAR thành `SNO` (do số hạng bên phải chỉ là "kiểu dữ liệu cơ bản"). Vì thế nó có thể gọi toán tử này ra, gọi ngầm, để chuyển số hạng kiểu CHAR thành `SNO`, tức là hệ thống thay thế so sánh cũ bằng:
+Trờ lại so sánh `S.SNO = 'X4'`. Hai toán hạng ở đây có kiểu khác nhau (`SNO` và CHAR). Vì chúng có kiểu khác nhau, nên chắc chắn không bằng nhau. Nhưng hệ thống đã đủ thông minh để tự định nghĩa một toán tử&mdash;`SNO` selector&mdash;thực hiện việc chuyển đổi CHAR thành `SNO` (do toán hạng bên phải chỉ là "kiểu dữ liệu cơ bản"). Vì thế nó có thể gọi toán tử này ra, gọi ngầm, để chuyển số hạng kiểu CHAR thành `SNO`, tức là hệ thống thay thế so sánh cũ bằng:
 
 ```
 S.SNO = SNO('X4')
