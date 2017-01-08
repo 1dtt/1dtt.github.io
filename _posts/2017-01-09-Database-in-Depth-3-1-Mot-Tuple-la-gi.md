@@ -5,11 +5,11 @@ title: 'Database in Depth 3.1: Một Tuple là gì?'
 
 Đây có phải một tuple?
 
-![types]({{ site.baseurl }}/images/2017_01_09_types0.png)
+![types]({{ site.baseurl }}/images/2017_01_07_types.png)
 
 Không phải&mdash;nó là *hình ảnh* của một tuple, không phải một tuple (chú ý lần đầu tiên tôi thêm tên kiểu vào trong hình). Như chúng ta đã thấy trong chương 1, có sự khác biệt giữa một vật và một hình ảnh vẽ vật đó, và sự khác biệt này có thể rất quan trọng. Ví dụ, tuple không có thứ tự từ trái sang phải đối với các thuộc tính của nó, nên hình ảnh sau đây là một ảnh khác của cùng tuple đó:
 
-![types]({{ site.baseurl }}/images/2017_01_09_types1.png)
+![types]({{ site.baseurl }}/images/2017_01_07_types.png)
 
 Do đó, trong khi tôi chắc chắn cần phải sử dụng đến các hình ảnh, nhưng làm ơn hãy nhớ rằng chúng *chỉ là* hình ảnh, và chúng đôi khi gợi nên một số điều không đúng sự thật.
 
@@ -21,10 +21,24 @@ Sau khi làm rõ điều này, giờ tôi có thể nói tuple chính xác là g
 
 Ví dụ, cho một trong hai hình ảnh trên (tuple cho supplier `S1`), chúng ta có:
 
- - *Độ:* 4. Heading của tuple cũng có degree 4.
- - *Các tên kiểu dữ liệu:* `SNO`, `NAME`, INTEGER, và CHAR.
- - *Các tên thuộc tính tương ứng:* `SNO`, `SNAME`, `STATUS`, và`CITY`.
- - *Các giá trị thuộc tính tương ứng:* `SNO(S1)`, `NAME('Smith')`, `20`, và `London`.
-	         *Chú ý:* Trong hai hình trên, tôi đều vẽ giá trị thuộc tính ở dạng đơn giản hóa. Nhưng nó hoàn toàn không chính xác khi nói rằng, giá trị `SNO` chỉ là `'S1'` hay (cẩu thả hơn) chỉ là `S1`. Một giá trị có kiểu `SNO` là một giá trị kiểu `SNO`, không phải là giá trị kiểu CHAR!&mdash;và biểu thức `SNO('S1')` mới là một *hằng số (literal)* có kiểu `SNO`.
- - *Heading:* `{SNO:CHAR, SNAME:CHAR, STATUS:INTEGER, CITY:CHAR}` 
-         
+#### *Độ* 
+
+Bốn. Heading của tuple cũng có degree 4.
+
+#### *Các tên kiểu dữ liệu*
+
+`SNO`, `NAME`, INTEGER, và CHAR.
+
+#### *Các tên thuộc tính tương ứng*
+
+`SNO`, `SNAME`, `STATUS`, và`CITY`.
+
+#### *Các giá trị thuộc tính tương ứng* 
+
+`SNO(S1)`, `NAME('Smith')`, `20`, và `London`.
+
+*Chú ý:* Trong hai hình trên, tôi đều vẽ giá trị thuộc tính ở dạng đơn giản hóa. Nhưng nó hoàn toàn không chính xác khi nói rằng, giá trị `SNO` chỉ là `'S1'` hay (cẩu thả hơn) chỉ là `S1`. Một giá trị có kiểu `SNO` là một giá trị kiểu `SNO`, không phải là giá trị kiểu CHAR!&mdash;và biểu thức `SNO('S1')` mới là một *hằng số (literal)* có kiểu `SNO`.
+
+#### *Heading* 
+
+`{SNO:CHAR, SNAME:CHAR, STATUS:INTEGER, CITY:CHAR}` 
