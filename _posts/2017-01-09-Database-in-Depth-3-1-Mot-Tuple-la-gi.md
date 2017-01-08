@@ -5,11 +5,11 @@ title: 'Database in Depth 3.1: Một Tuple là gì?'
 
 Đây có phải một tuple?
 
-![types]({{ site.baseurl }}/images/2017_01_07_types.png)
+![types]({{ site.baseurl }}/images/2017_01_09_tuple0.png)
 
 Không phải&mdash;nó là *hình ảnh* của một tuple, không phải một tuple (chú ý lần đầu tiên tôi thêm tên kiểu vào trong hình). Như chúng ta đã thấy trong chương 1, có sự khác biệt giữa một vật và một hình ảnh vẽ vật đó, và sự khác biệt này có thể rất quan trọng. Ví dụ, tuple không có thứ tự từ trái sang phải đối với các thuộc tính của nó, nên hình ảnh sau đây là một ảnh khác của cùng tuple đó:
 
-![types]({{ site.baseurl }}/images/2017_01_07_types.png)
+![types]({{ site.baseurl }}/images/2017_01_09_tuple1.png)
 
 Do đó, trong khi tôi chắc chắn cần phải sử dụng đến các hình ảnh, nhưng làm ơn hãy nhớ rằng chúng *chỉ là* hình ảnh, và chúng đôi khi gợi nên một số điều không đúng sự thật.
 
@@ -31,7 +31,7 @@ Bốn. Heading của tuple cũng có degree 4.
 
 #### *Các tên thuộc tính tương ứng*
 
-`SNO`, `SNAME`, `STATUS`, và`CITY`.
+`SNO`, `SNAME`, `STATUS`, và `CITY`.
 
 #### *Các giá trị thuộc tính tương ứng* 
 
