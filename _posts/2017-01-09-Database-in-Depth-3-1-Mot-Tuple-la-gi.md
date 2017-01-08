@@ -31,9 +31,9 @@ Bốn. Heading của tuple cũng có degree 4.
 `SNO`, `SNAME`, `STATUS`, và `CITY`.
 
  * *Các giá trị thuộc tính tương ứng*<br/>
-`SNO(S1)`, `NAME('Smith')`, `20`, và `London`.<br/><br/>
+`SNO(S1)`, `NAME('Smith')`, `20`, và `London`.<br/>
 
-*Chú ý:* Trong hai hình trên, tôi đều vẽ giá trị thuộc tính ở dạng đơn giản hóa. Nhưng nó hoàn toàn không chính xác khi nói rằng, giá trị `SNO` chỉ là `'S1'` hay (cẩu thả hơn) chỉ là `S1`. Một giá trị có kiểu `SNO` là một giá trị kiểu `SNO`, không phải là giá trị kiểu CHAR!&mdash;và biểu thức `SNO('S1')` mới là một *hằng số (literal)* có kiểu `SNO`.
+   *Chú ý:* Trong hai hình trên, tôi đều vẽ giá trị thuộc tính ở dạng đơn giản hóa. Nhưng nó hoàn toàn không chính xác khi nói rằng, giá trị `SNO` chỉ là `'S1'` hay (cẩu thả hơn) chỉ là `S1`. Một giá trị có kiểu `SNO` là một giá trị kiểu `SNO`, không phải là giá trị kiểu CHAR!&mdash;và biểu thức `SNO('S1')` mới là một *hằng số (literal)* có kiểu `SNO`.
 
  * *Heading*<br/>
 `{SNO:CHAR, SNAME:CHAR, STATUS:INTEGER, CITY:CHAR}`
