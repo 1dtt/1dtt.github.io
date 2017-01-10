@@ -54,11 +54,11 @@ Bây giờ, tôi muốn chuyển tới ý nghĩa thứ hai của thuật ngữ *
 
 Nói cách khác, một mô hình dữ liệu theo nghĩa thứ hai chỉ là một *thiết kế logic của cơ sở dữ liệu* (có thể có chút trừu tượng). Ví dụ, chúng ta có thể nói mô hình dữ liệu của một ngân hàng, bệnh viện hay tổ chức chính phủ.
 
-Vậy là đã giải thích hai nghĩa khác nhau của mô hình dữ liệu, bây giờ tôi muốn trình bày một phép hoán dụ rất thích hợp cho mối liên hệ giữa chúng:
+Vậy là tôi đã giải thích xong hai ý nghĩa khác nhau của mô hình dữ liệu, bây giờ tôi muốn trình bày một phép hoán dụ rất thích hợp cho mối liên hệ giữa chúng:
 
  * Một mô hình dữ liệu theo nghĩa thứ nhất giống như một ngôn ngữ lập trình, mà cấu trúc của nó có thể được sử dụng để giải quyết rất nhiều vấn đề cùng một loại, nhưng chính nó không có mối liên kết trực tiếp tới vấn đề nào.
  * Một mô hình dữ liệu theo nghĩa thứ hai giống như là một chương trình được viết bằng ngôn ngữ lập trình đó&mdash;nó sử dụng các công cụ của mô hình, theo nghĩa thứ nhất, để giải quyết một vấn đề cụ thể.
 
-Kết luận, khi nói tới mô hình dữ liệu theo nghĩa thứ hai, chúng ta sử dụng từ "relational models" ở dạng số nhiều hay "a" relational model (cùng với một bài viết không rõ ràng). Nhưng khi chúng ta nói về mô hình dữ liệu theo nghĩa thứ nhất, thì *chỉ có một mô hình quan hệ*, và nó là "the" relational model (cùng với một bài viết rõ ràng).
+Kết luận, từ tất cả điều trên, nếu chúng ta đang nói về mô hình dữ theo nghĩa thứ hai, thì có lẽ nên sử dụng từ "relational models" ở dạng số nhiều hoặc "a" relational model (với một chủ đề nào đó). Nhưng nếu chúng ta đang nói về mô hình dữ liệu theo nghĩa thứ nhất, thì *chỉ có một mô hình quan hệ*, và nó là "the" relational model (với chủ đề xác định, là chủ đề trong quyển sách này).
 
 Trong phần còn lại của sách, tôi sẽ sử dụng từ *mô hình dữ liệu*&mdash;thường nói gọn là *mô hình*&mdash;chỉ theo nghĩa thứ nhất.
