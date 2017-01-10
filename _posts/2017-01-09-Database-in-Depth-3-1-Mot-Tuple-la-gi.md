@@ -71,7 +71,7 @@ là một ví dụ về hàm tạo giá trị hàng, (a) có các thành phần 
 
 ## Một số hệ quả quan trọng
 
-Bây giờ, tôi muốn nêu bật một số hệ quả quan trọng từ các định từ trong phần trước. Thứ nhất là: *tuple không chứa null*. Do theo định nghĩa, tất cả tuple chứa một giá trị (có kiểu thích hợp) cho mỗi vị trí thuộc tính, và ta thấy từ Chương 1 rằng null không phải giá trị[^null]. Tất nhiên, tuple không chứa null thì quan hệ cũng vậy; nên ngay lập tức chúng ta đã có ít nhất một lý do để loại bỏ khái niệm null&mdash;nhưng tôi cũng sẽ đưa thêm một vài lý do thực tế khác, trong phần "Tại sao null bị loại bỏ".
+Bây giờ, tôi muốn nêu bật một số hệ quả quan trọng từ các định từ trong phần trước. Thứ nhất là: *tuple không chứa null*. Do theo định nghĩa, tất cả tuple chứa một giá trị (có kiểu thích hợp) cho mỗi vị trí thuộc tính, và ta thấy từ Chương 1 rằng null không phải giá trị.[^null] Tất nhiên, tuple không chứa null thì quan hệ cũng vậy; nên ngay lập tức chúng ta đã có ít nhất một lý do để loại bỏ khái niệm null&mdash;nhưng tôi cũng sẽ đưa thêm một vài lý do thực tế khác, trong phần "Tại sao null bị loại bỏ".
 
 Hệ quả tiếp theo: *tất cả tập con của một tuple là một tuple và tất cả tập con của một heading là một heading*. Ví dụ cho tuple supplier `S1` của chúng ta, cái mà chúng ta có thể gọi là "giá trị `{SNO, CITY}`" trong tuple `S1` chính nó cũng là một tuple khác:
 

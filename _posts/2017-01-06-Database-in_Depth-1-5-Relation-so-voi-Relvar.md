@@ -29,7 +29,7 @@ Chúng ta sẽ thu được kết quả:
 
 ![relation value]({{ site.baseurl }}/images/2017_01_06_relation_value.png)
 
-Theo lý thuyết, những gì đang diễn ra là giá trị cũ của `S` được thay thế bằng một giá trị hoàn toàn mới. Tất nhiên, giá trị cũ (có năm tuple) và giá trị mới (có bốn tuple) nhìn rất giống nhau, nhưng chúng thực sự là hai giá trị khác nhau.  Thực tế, một lệnh DELETE như trên tương đương về logic, và là cách viết nhanh cho phép gán quan hệ sau[^relational-assignment]:
+Theo lý thuyết, những gì đang diễn ra là giá trị cũ của `S` được thay thế bằng một giá trị hoàn toàn mới. Tất nhiên, giá trị cũ (có năm tuple) và giá trị mới (có bốn tuple) nhìn rất giống nhau, nhưng chúng thực sự là hai giá trị khác nhau.  Thực tế, một lệnh DELETE như trên tương đương về logic, và là cách viết nhanh cho phép gán quan hệ sau:[^relational-assignment]
 
 ```
 S := S MINUS ( S WHERE CITY = 'Athens' ) ;
