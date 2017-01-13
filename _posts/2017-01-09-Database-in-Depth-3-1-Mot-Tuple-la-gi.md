@@ -59,13 +59,13 @@ TUPLE { SNO SNO('S1'), SNAME NAME('Smith'),
 
 *Chú ý:* Về cú pháp. Như bạn thấy, từ khóa `TUPLE` có hai nhiệm vụ trong **Tutorial D**&mdash;một là sử dụng trong lời gọi tuple selector và hai là trong khai báo kiểu tuple. Từ khóa `RELATION` cũng tương tự như vậy.
 
-Cuối cùng, một điều về SQL. Đương nhiên, SQL hỗ trợ hàng, không phải tuple; cụ thể, nó hỗ trợ *kiểu hàng*, *hàm tạo kiểu hàng* (*row type constructor*), và *hàm tạo giá trị hàng* (*row value constructor*), mà lần lượt có chút tương đồng với *kiểu tuple*, *TUPLE type generator*, và *tuple selector*. Nhưng những tương tự này cực kỳ lỏng lẻo. Ví dụ, biểu thức SQL này:
+Cuối cùng, một điều về SQL. Đương nhiên, SQL hỗ trợ hàng, không phải tuple; cụ thể, nó hỗ trợ *kiểu hàng (row type)*, *hàm tạo kiểu dữ liệu (row type constructor)*, và *hàm tạo giá trị (row value constructor)*, mà lần lượt có chút tương đồng với *kiểu tuple*, *TUPLE type generator*, và *tuple selector*. Nhưng những tương tự này cực kỳ lỏng lẻo. Ví dụ, biểu thức SQL này:
 
 ```
 ROW ( 1, 2 )
 ```
 
-là một ví dụ về hàm tạo giá trị hàng, (a) có các thành phần vô danh và (b) không biểu diễn cùng một hàng với hàm tạo `ROW (2, 1)`.
+là một ví dụ về hàm tạo giá trị (row value constructor), (a) có các thành phần vô danh và (b) không biểu diễn cùng một hàng với hàm tạo `ROW (2, 1)`.
 
 *Chú ý:* Từ khóa `ROW` trong hàm tạo giá trị là tùy chọn.
 
