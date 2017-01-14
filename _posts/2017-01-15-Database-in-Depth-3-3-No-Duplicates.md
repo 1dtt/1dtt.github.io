@@ -34,7 +34,7 @@ Bây giờ, xét truy vấn sau: "Lấy ra các part numbers cho các parts ho�
 
  1. 
 
-    <pre><code>SELECT P.PNO
+    <pre class="highlight"><code>SELECT P.PNO
     FROM   P
     WHERE  P.PNAME = 'Screw'
     OR     P.PNO IN
@@ -42,6 +42,6 @@ Bây giờ, xét truy vấn sau: "Lấy ra các part numbers cho các parts ho�
            FROM SP
            WHERE SP.SNO = 'S1' )</code></pre>
 
-   Kết quả: `P1` * 3, `P2` * 1.
+    Kết quả: `P1` * 3, `P2` * 1.
 
  2. Item Three
