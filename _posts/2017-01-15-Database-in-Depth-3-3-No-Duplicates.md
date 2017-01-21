@@ -42,7 +42,8 @@ Bây giờ, ta có một truy vấn sau: "Lấy ra các part numbers cho các pa
            FROM SP
            WHERE SP.SNO = 'S1' )</code></pre>
 
-   Kết quả: `P1` * 3, `P2` * 1.
+    Kết quả: `P1` * 3, `P2` * 1.
+
  2. 
 
     <pre class="highlight"><code>SELECT SP.PNO
@@ -53,7 +54,8 @@ Bây giờ, ta có một truy vấn sau: "Lấy ra các part numbers cho các pa
            FROM P
            WHERE P.PNAME = 'Screw' )</code></pre>
 
-   Kết quả: `P1` * 2, `P2` * 1.
+    Kết quả: `P1` * 2, `P2` * 1.
+
  3. 
 
     <pre class="highlight"><code>SELECT P.PNO
@@ -62,7 +64,8 @@ Bây giờ, ta có một truy vấn sau: "Lấy ra các part numbers cho các pa
              SP.PNO = P.PNO )
     OR     P.PNAME = 'Screw'</code></pre>
 
-   Kết quả: `P1` * 9, `P2` * 3.
+    Kết quả: `P1` * 9, `P2` * 3.
+    
  4. 
 
     <pre class="highlight"><code>SELECT SP.PNO
@@ -71,7 +74,8 @@ Bây giờ, ta có một truy vấn sau: "Lấy ra các part numbers cho các pa
              SP.PNO = P.PNO )
     OR     P.PNAME = 'Screw'</code></pre>
 
-   Kết quả: `P1` * 8, `P2` * 4.
+    Kết quả: `P1` * 8, `P2` * 4.
+
  5. 
 
     <pre class="highlight"><code>SELECT P.PNO
@@ -82,7 +86,8 @@ Bây giờ, ta có một truy vấn sau: "Lấy ra các part numbers cho các pa
     FROM   SP
     WHERE  SP.SNO = 'S1'</code></pre>
 
-   Kết quả: `P1` * 5, `P2` * 2.
+    Kết quả: `P1` * 5, `P2` * 2.
+
  6. 
 
     <pre class="highlight"><code>SELECT DISTINCT P.PNO
@@ -93,7 +98,8 @@ Bây giờ, ta có một truy vấn sau: "Lấy ra các part numbers cho các pa
     FROM   SP
     WHERE  SP.SNO = 'S1'</code></pre>
 
-   Kết quả: `P1` * 3, `P2` * 2.
+    Kết quả: `P1` * 3, `P2` * 2.
+
  7. 
 
     <pre class="highlight"><code>SELECT P.PNO
@@ -104,7 +110,8 @@ Bây giờ, ta có một truy vấn sau: "Lấy ra các part numbers cho các pa
     FROM   SP
     WHERE  SP.SNO = 'S1'</code></pre>
 
-   Kết quả: `P1` * 4, `P2` * 2.
+    Kết quả: `P1` * 4, `P2` * 2.
+
  8. 
 
     <pre class="highlight"><code>SELECT DISTINCT P.PNO
@@ -115,7 +122,8 @@ Bây giờ, ta có một truy vấn sau: "Lấy ra các part numbers cho các pa
            FROM   SP
            WHERE  SP.SNO = 'S1' )</code></pre>
 
-   Kết quả: `P1` * 1, `P2` * 1.
+    Kết quả: `P1` * 1, `P2` * 1.
+
  9. 
 
     <pre class="highlight"><code>SELECT DISTINCT SP.PNO
@@ -126,7 +134,8 @@ Bây giờ, ta có một truy vấn sau: "Lấy ra các part numbers cho các pa
            FROM   P
            WHERE  P.PNAME = 'Screw' )</code></pre>
 
-   Kết quả: `P1` * 1, `P2` * 1.
+    Kết quả: `P1` * 1, `P2` * 1.
+
  10. 
 
     <pre class="highlight"><code>SELECT P.PNO
@@ -138,7 +147,8 @@ Bây giờ, ta có một truy vấn sau: "Lấy ra các part numbers cho các pa
            FROM SP
            WHERE SP.SNO = 'S1' )</code></pre>
 
-   Kết quả: `P1` * 1, `P2` * 1.
+    Kết quả: `P1` * 1, `P2` * 1.
+
  11. 
 
     <pre class="highlight"><code>SELECT P.PNO
@@ -148,7 +158,8 @@ Bây giờ, ta có một truy vấn sau: "Lấy ra các part numbers cho các pa
              SP.PNO = P.PNO )
     OR     P.PNAME = 'Screw'</code></pre>
 
-   Kết quả: `P1` * 2, `P2` * 2.
+    Kết quả: `P1` * 2, `P2` * 2.
+
  12. 
 
     <pre class="highlight"><code>SELECT P.PNO
