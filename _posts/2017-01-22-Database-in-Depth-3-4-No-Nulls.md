@@ -55,11 +55,11 @@ Biểu thức này có kết quả là TRUE, do số hạng thứ nhất là TRU
 ( 'London' <> xyz) OR ( xyz <> 'Paris' )
 ```
 
-Biểu thức này cũng có kết quả TRUE, do số hạng thứ hai là TRUE. Do đó, biểu thức boolean trên luôn luôn tạo ra kết quả TRUE trong thế giới thực, và câu truy vấn đáng ra phải có trả về giá trị `(S1, P1)`, *bất kể giá trị thực mà null đại diện*. Nói cách khác, kết quả đúng với logic (3VL) và kết quả đúng với thế giới thực là khác nhau.
+Biểu thức này cũng có kết quả TRUE, do số hạng thứ hai là TRUE. Do đó, biểu thức boolean trên luôn luôn tạo ra kết quả TRUE trong thế giới thực, và câu truy vấn đáng ra phải có trả về giá trị `(S1, P1)`, *bất kể giá trị thực mà null đại diện có là gì*. Nói cách khác, kết quả đúng với logic (3VL) và kết quả đúng với thế giới thực là hai kết quả khác nhau.
 
-Nói tóm lại: Nếu bạn có null trong cơ sở dữ liệu, bạn sẽ nhận được câu trả lời sai cho một số truy vấn. Hơn nữa, bạn không có cách nào nhận ra, câu truy vấn nào trả về kết quả sai; *tất cả* kết quả đều có thể sai. *Bạn không bao giờ có thể tin tưởng vào câu trả lời bạn nhận được từ một cơ sở dữ liệu có chứa null*. Với tôi, nhận định này rất đáng tán thưởng.
+Nói tóm lại: Nếu bạn có null trong cơ sở dữ liệu, bạn sẽ nhận được câu trả lời sai cho một số câu truy vấn. Hơn nữa, bạn không có cách nào nhận ra, câu truy vấn nào trả về kết quả sai; *tất cả* kết quả đều đáng ngờ. *Bạn không bao giờ có thể tin tưởng vào câu trả lời bạn nhận được từ một cơ sở dữ liệu có chứa null*. Với tôi, nhận định này rất đáng tán thưởng.
 
-Giống với sự trùng lặp trong phần trước, có rất nhiều điều có thể nói về vấn đề null, nhưng tôi chỉ muốn kết thúc phần này với một số luận điểm *chính thức* chống lại null. Nhớ lại, theo định nghĩa, null không phải một giá trị. Một số luận điểm là:
+Giống như sự trùng lặp trong phần trước, có rất nhiều điều có thể nói về vấn đề null, nhưng tôi muốn kết thúc phần này chỉ với một số luận điểm *chính thức* chống lại null. Nhớ lại, theo định nghĩa, null không phải một giá trị. Một số luận điểm là:
 
  * Một "kiểu dữ liệu" chứa null không phải một kiểu dữ liệu (vì kiểu dữ liệu chứa giá trị).
 
