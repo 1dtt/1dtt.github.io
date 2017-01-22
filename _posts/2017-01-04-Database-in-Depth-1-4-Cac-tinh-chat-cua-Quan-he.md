@@ -45,6 +45,7 @@ Về nguyên tắc, bạn có thể thao tác trên view như thể chúng là c
 Có một điểm quan trọng tôi cần làm rõ ở đây. Có lẽ bạn thường nghe thấy mọi người miêu tả sự khác nhau giữa quan hệ cơ sở và view như sau:
 
  * Quan hệ cơ sở thực sự tồn tại&mdash;tức là, chúng được lưu vật lý trong cơ sở dữ liệu.
+ 
  * Ngược lại, view không *thực sự tồn tại*&mdash;chúng chỉ đơn thuần đưa ra cách nhìn khác vào quan hệ cơ sở.
 
 *Nhưng mô hình quan hệ không hề nói tới cái gì sẽ được lưu vật lý!* Đặc biệt, nó *không* nói rằng quan hệ cơ sở được lưu vật lý. Điều kiện duy nhất đó là tất cả những thứ được lưu vật lý phải có một ánh xạ nào đó tới các quan hệ cơ sở, để những quan hệ cơ sở này có thể được tạo ra khi cần (trong bất kỳ trường hợp nào). Nếu quan hệ cơ sở có thể được tạo ra từ những thứ được lưu vật lý, thì tất cả những thứ khác cũng có thể như thế. Ví dụ, chúng ta có thể lưu vật lý join của suppliers và shipments, thay vì lưu chúng riêng biệt; thì quan hệ cơ sở `S` và `SP` có thể được tạo ra, bằng hai phép project tương ứng trên join này. Nói cách khác: đối với mô hình quan hệ, quan hệ cơ sở không "vật lý" hơn, hay kém "vật lý" hơn view.

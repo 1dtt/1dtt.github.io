@@ -22,6 +22,7 @@ Hay với khái niệm *join*: Người dùng cần phải biết join là gì, 
 Nói tóm lại:
 
  * *Mô hình* (nghĩa thứ nhất) là cái người dùng phải hiểu rõ.
+
  * *Thực thi* là cái người dùng không cần biết.
 
 (Tất nhiên, tôi không nói rằng người dùng không *được phép* biết về thực thi; tôi chỉ nói là không cần biết. Nói cách khác, thực thi nên *bị ẩn khỏi người dùng*.)
@@ -57,6 +58,7 @@ Nói cách khác, một mô hình dữ liệu theo nghĩa thứ hai chỉ là m�
 Vậy là tôi đã giải thích xong hai ý nghĩa khác nhau của mô hình dữ liệu, bây giờ tôi muốn trình bày một phép hoán dụ rất thích hợp cho mối liên hệ giữa chúng:
 
  * Một mô hình dữ liệu theo nghĩa thứ nhất giống như một ngôn ngữ lập trình, mà cấu trúc của nó có thể được sử dụng để giải quyết rất nhiều vấn đề cùng một loại, nhưng chính nó không có mối liên kết trực tiếp tới vấn đề nào.
+ 
  * Một mô hình dữ liệu theo nghĩa thứ hai giống như là một chương trình được viết bằng ngôn ngữ lập trình đó&mdash;nó sử dụng các công cụ của mô hình, theo nghĩa thứ nhất, để giải quyết một vấn đề cụ thể.
 
 Kết luận, từ tất cả điều trên, nếu chúng ta đang nói về mô hình dữ theo nghĩa thứ hai, thì có lẽ nên sử dụng từ "relational models" ở dạng số nhiều hoặc "a" relational model (với một chủ đề nào đó). Nhưng nếu chúng ta đang nói về mô hình dữ liệu theo nghĩa thứ nhất, thì *chỉ có một mô hình quan hệ*, và nó là "the" relational model (với chủ đề xác định, là chủ đề trong quyển sách này).

@@ -6,6 +6,7 @@ title: 'Database in Depth 3.3: No Duplicates'
 Trong chương trước, tôi đã nói:
 
  * Quan hệ không bao giờ chứa các tuple trùng nhau, vì body của chúng là một tập hợp (tập hợp các tuple) và tập hợp trong toán học không chứa các phần tử trùng nhau.
+
  * Quan hệ không bao giờ chứa null, vì body của quan hệ là một tập hợp các tuple, và tuple không bao giờ chứa null.
 
 Như vậy, chủ đề này và chủ đề về null sẽ là hai chủ đề của SQL, không phải mô hình quan hệ; nên tôi sẽ sử dụng các thuật ngữ của SQL.
@@ -15,6 +16,7 @@ Như vậy, chủ đề này và chủ đề về null sẽ là hai chủ đề 
 Có nhiều lý do thực tiễn bảo vệ cho quan điểm nên loại bỏ hàng trùng lặp. Ở đây tôi muốn nhấn mạnh chỉ một luận điểm&mdash;nhưng tôi nghĩ rất chắc chắn. Tuy nhiên, luận điểm này dựa trên một số khái niệm tôi chưa bao giờ thảo luận, nên tôi cần giả sử bạn đã biết trước:
 
  * Tôi cho rằng bạn đã biết các hệ thống DBMS quan hệ có chứa một thành phần tên là *optimizer*, có nhiệm vụ tìm ra cách tốt nhất để thực thi các truy vấn (tốt nhất ở đây nghĩa là *hiệu năng tốt nhất*).
+
  * Tôi cũng cho rằng bạn đã biết optimizer có thực hiện một công việc gọi là *sửa truy vấn (query rewrite)*. Query rewrite là một quá trình biến đổi một biểu thức quan hệ `exp1` thành một biểu thức khác `exp2`&mdash;*expression transformation*&mdash;mà đảm bảo tạo ra cùng kết quả nhưng việc tính toán `exp2` được thực hiện nhanh hơn.
 
 Sau giả sử, bây giờ tôi có thể trình bày luận điểm của mình. Điểm cơ bản tôi muốn chứng minh ở đây là một số biến đổi biểu thức, tức là một số sự tối ưu (optimization), có thể hợp lệ nếu SQL thực sự có tính quan hệ&mdash;nghĩa là không chứa hàng trùng lặp, nhưng lại không hợp lệ nếu tồn tại hàng trùng lặp. Dưới đây là cơ sở dữ liệu có chứa hàng trùng lặp (không có tính quan hệ) tôi sử dụng để chứng minh rằng có một số biến đổi biểu thức không hợp lệ (chú ý hai bảng đều không có khóa):
@@ -179,7 +181,9 @@ Hiển nhiên điểm đầu tiên cần chú ý đó là, ở đây có mười
 Tiếp theo, một chú ý tương tự cũng áp dụng cho chính hệ thống. Vì các công thức khác nhau có thể tạo ra các kết quả khác nhau, nên optimizer cũng phải cực kỳ cần trọng trong nhiệm vụ biến đổi biểu thức. Ví dụ, optimizer không thể tùy ý biến đổi, giả sử, công thức 1 thành công thức 12, dù nó muốn. Dưới đây là một số hệ quả:
 
  * Hệ thống khó viết code cho optimizer, khó bảo trì code, và có thể gây ra nhiều bug&mdash;từ đó khiến cho sản phẩm tốn kém hơn và không đáng tin, cũng như chậm tung ra thị trường.
+
  * Hiệu năng hệ thống có thể kém hơn.
+ 
  * Người dùng bị dính vào vấn đề hiệu năng. Cụ thể, họ phải bỏ thời gian và công sức tìm ra một công thức SQL tốt nhất (hiệu năng tốt nhất) cho một câu truy vấn&mdash;mô hình quan hệ tuyệt đối tránh điều này.
 
 Sự kìm hãm của hàng trùng nhau lên optimizer còn đặc biệt gây nản lòng ở chỗ, trong đa số trường hợp, người dùng có lẽ *không* quan tâm tới các hàng trùng lặp trong kết quả truy vấn. Tức là, họ có lẽ không hề bận tâm tới việc các công thức khác nhau tạo ra các kết quả khác nhau; nhưng optimizer không thể nhận ra điều đó, nên nó bị cản trở, một cách quá mức cần thiết, thực hiện các biến đổi mà đáng ra nó phải làm như thế.

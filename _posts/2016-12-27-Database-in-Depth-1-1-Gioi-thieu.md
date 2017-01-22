@@ -6,7 +6,9 @@ title: 'Database in Depth 1.1: Giới thiệu'
 **Bất kỳ một chuyên gia trong lĩnh vực nào cũng phải có hiểu biết về nền móng của lĩnh vực đó.** Do đó, nếu muốn trở thành một chuyên gia về cơ sở dữ liệu, bạn cần hiểu biết mô hình quan hệ (relational model), bởi vì mô hình này là nền móng của lĩnh vực cơ sở dữ liệu. Ngày nay, tất cả khóa học quản trị cơ sở dữ liệu, dù là học thuật hay thương mại, cũng đều có ý thức dạy về mô hình quan hệ&mdash;nhưng dường như lại dạy rất tệ, và kết quả thì không đi đến đâu. Tôi cho rằng: Cộng đồng cơ sở dữ liệu chắc chắn đang không hiểu rõ mô hình quan hệ. Dưới đây là một số lý do:
 
  * Mô hình này chỉ được dạy thoáng qua. Ít nhất là đối với những người mới, rất khó để hiểu đúng các kiến thức trong sách vở, hay rất khó để hiểu được các vấn đề mà mô hình muốn giải quyết, hoặc cả hai.
+
  * Chính những người dạy cũng không có hiểu biết đầy đủ.
+
  * (Có vẻ như trong thực tế.) Mô hình này hoàn toàn không được dạy&mdash;thay vào đó, người ta dạy ngôn ngữ SQL hay một biến thể (dialect) nào đó của SQL, như T-SQL của Microsoft.
 
 Nếu sự hiểu biết của bạn về mô hình quan hệ được suy ra từ kiến thức SQL, thì tôi e rằng bạn đã hiểu sai về "thứ mà nó không phải như thế".
@@ -18,10 +20,15 @@ Nếu sự hiểu biết của bạn về mô hình quan hệ được suy ra t�
 Dưới đây biểu diễn một số vấn đề về tính quan hệ mà SQL không làm rõ:
 
  * Cơ sở dữ liệu (database), quan hệ (relation), và tuple là gì
+
  * Khác biệt giữa relation và kiểu dữ liệu (type)
+
  * Khác biệt giữa *giá trị relation* và *biến relation*
+
  * Liên quan giữa predicate và proposition
+
  * Tính hợp lệ của *thuộc tính giá trị là quan hệ* (*relation-valued attribute*)
+ 
  * Vai trò quan trọng của *ràng buộc toàn vẹn* (*integrity constraint*)
 
 và rất nhiều vấn đề khác (đây không phải là danh sách đầy đủ). Tất cả vấn đề trên, và tất nhiên rất nhiều vấn đề khác, đều được làm rõ trong cuốn sách này.
@@ -45,7 +52,9 @@ Tôi muốn dành chút thời gian để phân tích câu hỏi, tại sao, n�
 Do đó trong cuốn sách này, chúng ta sẽ quan tâm đến nguyên lý, không phải sản phẩm, và nền móng, không phải mốt. Tất nhiên, trong thực tế tôi cũng nhận ra rằng đôi khi bạn phải thực hiện một số đánh đổi. Ví dụ, đôi khi bạn có lý do thực tiễn rất tốt để không thiết kế cơ sở dữ liệu một cách tối ưu theo lý thuyết (một vấn đề sẽ thảo luận trong chương 7). Ví dụ khác, xét SQL một lần nữa. Mặc dù có thể sử dụng SQL một cách quan hệ, đôi khi bạn sẽ thấy rằng&mdash;do implementation hiện hành đã đi sai hướng rất nhiều&mdash;sử dụng SQL một cách quan hệ khiến cho hệ thống phải chịu tổn thất hiệu năng lớn... trong trường hợp như thế này, bạn bị ép phải làm một thứ gì đó không "có tính quan hệ thực sự" (như là viết query theo một cách lạ lùng và quái dị nào đó để khiến cho implementation hiện hành sử dụng một index). Tuy nhiên, tôi chắc chắn rằng bạn nên luôn luôn thực hiện một sự đánh đổi như thế dựa vào một *vị trí của khái niệm*. Tức là:
 
  * Bạn nên hiểu rõ cái mà bạn đang làm khi thực hiện một đánh đổi như thế.
+
  * Bạn nên biết kết quả khi làm đúng theo lý thuyết là gì, và bạn phải có lý do thực sự tốt để làm trái đi.
+
  * Bạn cũng cần phải ghi chép lại các lý do, để cho nếu sau này chúng không đúng nữa (có thể do các bản release mới của thư viện/framework bên dưới hỗ trợ tốt hơn), thì bạn có thể quay lại và rút sự đánh đổi này đi.
 
 Câu nói sau&mdash;của Leonardo da Vinci&mdash;vì thế đã hơn 500 tuổi:

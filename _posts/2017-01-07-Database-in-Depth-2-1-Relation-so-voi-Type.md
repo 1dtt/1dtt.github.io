@@ -14,6 +14,7 @@ Tôi cũng giả sử rằng kiểu INTEGER (số nguyên) và CHAR (chuỗi ký
 Đúng ra về mặt lịch sử, khi Codd lần đầu tiên định nghĩa mô hình quan hệ, ông ấy nói rằng quan hệ được định nghĩa dựa trên *miền giá trị* (*domain*), không phải kiểu dữ liệu. Tuy nhiên, thực tế miền giá trị và kiểu dữ liệu *đúng là một*. Bây giờ, có thể bạn cho rằng tuyên bố này chỉ là quan điểm cá nhân của tôi, nếu bạn muốn, nhưng hãy để tôi trình bày các lý lẽ của mình ở hai chủ đề tiếp theo đây. Để chứng minh. tôi sẽ đi từ mô hình quan hệ do Codd định nghĩa; vì vậy tôi sẽ tạm thời sử dụng thuật ngữ miền, không phải kiểu, cho đến khi tôi thông báo lại. Hai chủ đề tôi muốn thảo luận đó là:
 
  * *Domain-constrained comparisons and "domain check override"*: Tôi hi vọng phần này sẽ thuyết phục bạn rằng miền thực sự là kiểu.
+
  * *Data value atomicity and first normal form*: Chứng minh kiểu dữ liệu có thể độ phức tạp tùy ý.
 
 ## So sánh có kiểm tra miền giá trị (Domain-Constrained Comparisons)
@@ -144,7 +145,9 @@ Codd định nghĩa dữ liệu có tính nguyên tử nghĩa là dữ liệu "k
 Dưới đây là một số ví dụ khác về các giá trị mà tính nguyên tử của chúng vẫn là một câu hỏi mở, song ta chắc chắn muốn sử dụng chúng làm giá trị cho các thuộc tính trong quan hệ:
 
  * Chuỗi bit.
+
  * Số hữu tỉ (có thể tách thành phần nguyên và phần thập phân).
+
  * Ngày tháng và thời gian (có thể tách thành năm / tháng / ngày và giờ / phút / giây).
 
 Vân vân.
@@ -163,6 +166,7 @@ Bây giờ giả sử chúng ta thay thế `R1` bởi `R2`, vẽ ra nhà cung c�
 Vậy thì để cho đơn giản, hãy cùng thống nhất `R2` không có dạng 1NF. Nhưng giả sử chúng ta thay `R2` bởi `R3`. Thì tôi tuyên bố *R3 có dạng 1NF!* Do:
 
  * Thứ nhất, để ý tôi đã đổi tên `PNO` thành `PNO_SET`, và tôi đóng group of parts, là giá trị của `PNO_SET` vào hai ngoặc nhọn, để nhấn mạnh rằng một nhóm như thế thực sự là một giá trị đơn: một giá trị tập hợp&mdash;một tập hợp ở một mức trừu tượng nhất định, vẫn là một giá trị đơn.
+ 
  * Thứ hai, một tập hợp như `{P2,P4,P5}` *có tính nguyên tử giống như một chuỗi ký tự, không hơn không kém*.
 
 Điều thực sự mà tôi muốn làm rõ ở đây đó là khái niệm nguyên tử *tuyệt đối không có ý nghĩa gì cả*; nó chỉ phụ thuộc vào cách chúng ta muốn thao tác với dữ liệu. Đôi khi chúng ta muốn xử lý cả một tập hợp của part number như một giá trị đơn lẻ, và đôi khi chúng ta muốn xử lý từng part number trong tập hợp đó&mdash;nhưng cũng có lúc chúng ta muốn dữ liệu có mức độ chi tiết thấp hơn, hoặc mức độ trừu tượng thấp hơn.
