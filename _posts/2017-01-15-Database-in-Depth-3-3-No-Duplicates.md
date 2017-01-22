@@ -12,7 +12,7 @@ Như vậy, chủ đề này và chủ đề về null sẽ là hai chủ đề 
 
 ## Trùng có gì sai?
 
-Có nhiều lý do thực tiễn bảo vệ cho quan điểm nên khử các hàng trùng lặp. Ở đây tôi muốn nhấn mạnh chỉ một luận điểm&mdash;nhưng tôi nghĩ rất chắc chắn. Tuy nhiên, luận điểm này dựa trên một số khái niệm tôi chưa bao giờ thảo luận, nên tôi cần giả sử bạn đã biết trước hai điều sau:
+Có nhiều lý do thực tiễn bảo vệ cho quan điểm nên loại bỏ hàng trùng lặp. Ở đây tôi muốn nhấn mạnh chỉ một luận điểm&mdash;nhưng tôi nghĩ rất chắc chắn. Tuy nhiên, luận điểm này dựa trên một số khái niệm tôi chưa bao giờ thảo luận, nên tôi cần giả sử bạn đã biết trước hai điều sau:
 
  * Tôi cho rằng bạn đã biết các hệ thống DBMS quan hệ có chứa một thành phần tên là *optimizer*, có nhiệm vụ tìm ra cách tốt nhất để thực thi các truy vấn (tốt nhất ở đây nghĩa là *hiệu năng tốt nhất*).
  * Tôi cũng cho rằng bạn đã biết optimizer có thực hiện một công việc gọi là *sửa truy vấn (query rewrite)*. Query rewrite là một quá trình biến đổi một biểu thức quan hệ `exp1` thành một biểu thức khác `exp2`&mdash;*expression transformation*&mdash;mà đảm bảo tạo ra cùng kết quả nhưng việc tính toán `exp2` được thực hiện nhanh hơn.
@@ -188,7 +188,7 @@ Như vậy, tôi khuyên bạn nên đảm bảo kết quả của truy vấn kh
 
 Còn rất nhiều điều tôi có thể nói về vấn đề này, nhưng tôi chỉ đủ chỗ cho hai điểm nữa. Thứ nhất, một tùy chọn khác thay cho DICTINCT trong SQL là SELECT ALL&mdash;không may lại là tùy chọn mặc định. Và có lẽ DICTINCT mất nhiều thời gian thực thi hơn SELECT ALL. Tôi sẽ không thảo luận điểm này xa hơn, ngoài chú ý rằng các hệ thống SQL thường không thể tối ưu hóa một cách chính xác trong việc khử hàng trùng lặp là do thiếu hiểu biết về *kế thừa khóa (key inheritance)* (tức là, khả năng tìm ra khóa cho kết quả của một biểu thức quan hệ).
 
-Thứ hai, có lẽ bạn sẽ phản đối rằng các bảng cơ sở trong thực tế không bao giờ chứa các hàng trùng lặp, nên ví dụ của tôi đã sai. Điều này đúng; nhưng vấn đề là, SQL có thể *tạo ra* trùng lặp trong kết quả của truy vấn. Thật vậy, các công thức khác nhau của cùng một truy vấn có thể tạo ra các kết quả có độ trùng lặp khác nhau, như chúng ta đã thấy, kể cả khi bảng đầu vào không chứa hàng trùng lặp. Ví dụ, xét hai công thức sau của truy vấn "Lấy ra các supplier numbers của các suppliers mà cung cấp ít nhất một part" trong cơ sở dữ liệu suppliers-and-parts:
+Thứ hai, có lẽ bạn sẽ phản đối rằng các bảng cơ sở trong thực tế không bao giờ chứa hàng trùng lặp, nên ví dụ của tôi đã sai. Điều này đúng; nhưng vấn đề là, SQL có thể *tạo ra* trùng lặp trong kết quả của truy vấn. Thật vậy, các công thức khác nhau của cùng một truy vấn có thể tạo ra các kết quả có độ trùng lặp khác nhau, như ta đã thấy, kể cả khi bảng đầu vào không chứa hàng trùng lặp. Ví dụ, xét hai công thức sau của truy vấn "Lấy ra các supplier numbers của các suppliers mà cung cấp ít nhất một part" trong cơ sở dữ liệu suppliers-and-parts:
 
 ```
 SELECT SNO              │     SELECT SNO 
