@@ -12,7 +12,7 @@ Như vậy, chủ đề này và chủ đề về null sẽ là hai chủ đề 
 
 ## Trùng có gì sai?
 
-Có nhiều lý do thực tiễn bảo vệ cho quan điểm nên loại bỏ hàng trùng lặp. Ở đây tôi muốn nhấn mạnh chỉ một luận điểm&mdash;nhưng tôi nghĩ rất chắc chắn. Tuy nhiên, luận điểm này dựa trên một số khái niệm tôi chưa bao giờ thảo luận, nên tôi cần giả sử bạn đã biết trước hai điều sau:
+Có nhiều lý do thực tiễn bảo vệ cho quan điểm nên loại bỏ hàng trùng lặp. Ở đây tôi muốn nhấn mạnh chỉ một luận điểm&mdash;nhưng tôi nghĩ rất chắc chắn. Tuy nhiên, luận điểm này dựa trên một số khái niệm tôi chưa bao giờ thảo luận, nên tôi cần giả sử bạn đã biết trước:
 
  * Tôi cho rằng bạn đã biết các hệ thống DBMS quan hệ có chứa một thành phần tên là *optimizer*, có nhiệm vụ tìm ra cách tốt nhất để thực thi các truy vấn (tốt nhất ở đây nghĩa là *hiệu năng tốt nhất*).
  * Tôi cũng cho rằng bạn đã biết optimizer có thực hiện một công việc gọi là *sửa truy vấn (query rewrite)*. Query rewrite là một quá trình biến đổi một biểu thức quan hệ `exp1` thành một biểu thức khác `exp2`&mdash;*expression transformation*&mdash;mà đảm bảo tạo ra cùng kết quả nhưng việc tính toán `exp2` được thực hiện nhanh hơn.
