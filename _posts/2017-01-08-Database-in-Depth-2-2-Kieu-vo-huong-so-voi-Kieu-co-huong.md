@@ -5,11 +5,11 @@ title: 'Database in Depth 2.2: Kiểu vô hướng so với Kiểu có hướng'
 
 Chúng ta thường nghĩ kiểu dữ liệu hoặc là *vô hướng* (*scalar*) hoặc là *có hướng* (*nonscalar*). Nói chung, một kiểu dữ liệu là vô hướng nếu nó không có thành phần hữu hình và có hướng thì ngược lại&mdash;và giá trị, biến, thuộc tính, toán tử, tham số, và biểu thức thuộc kiểu `T` là vô hướng hay có hướng tùy thuộc vào kiểu `T` là vô hướng hay có hướng. Ví dụ:
 
- * Kiểu INTEGET là vô hướng; nên giá trị, biến, vân vân có kiểu INTEGER cũng là vô hướng, tức là chúng không có thành phần hữu hình.
+ * Kiểu INTEGER là vô hướng; nên giá trị, biến, vân vân có kiểu INTEGER cũng là vô hướng, tức là chúng không có thành phần hữu hình.
 
- * Kiểu Tuple và quan hệ là có hướng&mdash;thành phần hữu hình của chúng là thuộc tính&mdash;nên giá trị tuple và quan hệ, biến tuple và quan hệ, vân vân, đều là có hướng.
+ * Kiểu Tuple và Quan hệ là có hướng&mdash;thành phần hữu hình của chúng là thuộc tính&mdash;nên giá trị tuple và quan hệ, biến tuple và quan hệ, vân vân, đều là có hướng.
 
-Nhưng, tôi phải nhấn mạnh rằng những khái niệm này khá là không chính thức. Thật vậy, chúng ta đã thấy rằng khái niệm *tính nguyên tử* hoàn toàn không có ý nghĩa gì cả, và "tính vô hướng" chỉ là khái niệm của tính nguyên tử với một cái tên khác. Do đó, mô hình quan hệ không dựa vào phân biệt giữa vô hướng với có hướng. Tuy nhiên trong cuốn sách này, tôi sẽ dựa vào phân biệt đó (không chính thức); cụ thể, tôi sử dụng thuật ngữ *vô hướng* để liên kết với các kiểu dữ liệu không phải tuple hay quan hệ; và thuật ngữ *có hướng* để liên kết với kiểu tuple hay kiểu quan hệ.
+Nhưng, tôi phải nhấn mạnh rằng những khái niệm này là không chính thức. Thật vậy, chúng ta đã thấy rằng khái niệm *tính nguyên tử* hoàn toàn không có ý nghĩa gì cả, và "tính vô hướng" chỉ là khái niệm của tính nguyên tử với một cái tên khác. Do đó, mô hình quan hệ không dựa vào phân biệt giữa vô hướng với có hướng. Tuy nhiên trong cuốn sách này, tôi sẽ dựa vào phân biệt đó (không chính thức); cụ thể, tôi sử dụng thuật ngữ *vô hướng* để liên kết với các kiểu dữ liệu không phải tuple hay quan hệ; và thuật ngữ *có hướng* để liên kết với kiểu tuple hay kiểu quan hệ.
 
 Cùng xét một ví dụ sau. Đây là một định nghĩa trong ngôn ngữ **Tutorial D** cho relvar cơ sở `S` (suppliers):
 
