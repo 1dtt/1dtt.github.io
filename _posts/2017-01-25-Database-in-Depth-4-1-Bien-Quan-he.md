@@ -50,7 +50,7 @@ Tương tự, nó không đúng khi nói "cập nhật thuộc tính `A` trong t
 Tôi đã giải thích ý tưởng chung của khóa ứng cử trong Chương 1, bây giờ tôi muốn làm rõ hơn khái niệm này. Dưới đây là một định nghĩa:
 
 <div class="definition">
-  <strong>Định nghĩa</strong>: Giả sử <em>K</em> là một tập con của heading của relvar <em>R</em>. Thì <em>K</em>là một <em>khóa ứng cử</em> (gọi tắt là <em>khóa</em>) cho <em>R</em> khi và chỉ khi nó sở hữu cả hai tính chất sau:<br/><br/>
+  <strong>Định nghĩa</strong>: Giả sử <em>K</em> là một tập con của heading của relvar <em>R</em>. Thì <em>K</em>là một <em>khóa ứng cử</em> (gọi tắt là <em>khóa</em>) cho <em>R</em> khi và chỉ khi nó sở hữu cả hai tính chất sau:<br/>
     <ol>
       <li><em>Tính duy nhất (Uniqueness):</em> Không có giá trị nào của <em>R</em> chứa hai tuple khác nhau có cùng giá trị cho <em>K</em></li><br/>
       <li><em>Tính không rút gọn được (Irreducibility):</em> Không có tập con của <em>K</em> có tính duy nhất.</li>
