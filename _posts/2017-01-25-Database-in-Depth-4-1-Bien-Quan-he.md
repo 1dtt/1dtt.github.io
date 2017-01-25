@@ -50,11 +50,58 @@ Tương tự, nó không đúng khi nói "cập nhật thuộc tính `A` trong t
 Tôi đã giải thích ý tưởng chung của khóa ứng cử trong Chương 1, bây giờ tôi muốn làm rõ hơn khái niệm này. Dưới đây là một định nghĩa:
 
 <div class="definition">
-  <strong>Định nghĩa</strong>: Giả sử <em>K</em> là một tập con của heading của relvar <em>R</em>. Thì <em>K</em>là một <em>khóa ứng cử</em> (gọi tắt là <em>khóa</em>) cho <em>R</em> khi và chỉ khi nó sở hữu cả hai tính chất sau:<br/>
+  <strong>Định nghĩa</strong>: Giả sử <em>K</em> là một tập con của heading của relvar <em>R</em>. Thì <em>K</em> là một <em>khóa ứng cử</em> (gọi tắt là <em>khóa</em>) cho <em>R</em> khi và chỉ khi nó sở hữu cả hai tính chất sau:<br/>
     <ol>
       <li><em>Tính duy nhất (Uniqueness):</em> Không có giá trị nào của <em>R</em> chứa hai tuple khác nhau có cùng giá trị cho <em>K</em></li><br/>
-      <li><em>Tính không rút gọn được (Irreducibility):</em> Không có tập con của <em>K</em> có tính duy nhất.</li>
+      <li><em>Tính không thể rút gọn (Irreducibility):</em> Không có tập con của <em>K</em> có tính duy nhất.</li>
     </ol>
 </div>
 
-Tính duy nhất rất dễ hiểu.
+Tính duy nhất rất dễ hiểu, nhưng tôi phải nói một chút về tính chất không thể rút gọn. Giả sử relvar `S` và tập hợp thuộc tính `{SNO,CITY}`&mdash;giả sử gọi là `SK`&mdash;là một tập con của heading `S` có tính duy nhất. Nhưng nó không có tính không thể rút gọn, vì chúng ta có thể loại bỏ thuộc tính `CITY` và cái còn lại, tập hợp `{SNO}`, vẫn còn tính duy nhất. Nên chúng ta không nhìn nhận `SK` là một khóa, vì nó "quá lớn". Ngược lại, `{SNO}` không thể rút gọn, và nó là một khóa.
+
+Tại sao chúng ta lại muốn giữ cho khóa không thể rút gọn? Một lý do là nếu chúng ta chỉ ra một "khóa" *không* có tính không thể rút gọn, DBMS sẽ không thể thực hiện ràng buộc tính duy nhất một cách đúng đắn. Ví dụ, giả sử chúng ta lừa dối DBMS rằng `{SNO,CITY}` là một khóa. Thì DBMS không thể thực hiện ràng buộc rằng các supplier number `{SNO}` là duy nhất một cách "toàn bộ"; thay vào đó, nó chỉ có thể thực hiện một ràng buộc yếu hơn rằng các supplier number `{SNO}` là duy nhất một cách "cục bộ", nghĩa là chúng chỉ duy nhất trong một thành phố nhất định. Vậy đây là một lý do (không phải duy nhất) tại sao chúng ta cần khóa không kèm theo bất kỳ thuộc tính nào không cần thiết cho mục đích xác định tính duy nhất.
+
+Tất cả relvar chúng ta gặp từ đầu tới giờ chỉ có một khóa. Ngược lại, dưới đây là một số ví dụ relvar có nhiều hơn hai khóa. Chú ý sự chồng chéo của khóa trong ví dụ thứ hai và thứ ba:
+
+```
+VAR TAX_BRACKET BASE RELATION
+  { LOW MONEY , HIGH MONEY , PERCENTAGE INTEGER }
+    KEY { LOW }
+    KEY { HIGH }
+    KEY { PERCENTAGE } ;
+
+VAR ROSTER BASE RELATION
+  { DAY DAY_OF_WEEK , TIME TIME_OF_DAY , GATE GATE , PILOT NAME }
+    KEY { DAY , TIME , GATE }
+    KEY { DAY , TIME , PILOT } ;
+
+VAR MARRIAGE BASE RELATION
+  { SPOUSE_A NAME , SPOUSE_B NAME , DATE_OF_MARRIAGE DATE }
+    /* assume no polygamy and no persons marrying */
+    /* each other more than once ... */
+    KEY { SPOUSE_A , DATE_OF_MARRIAGE }
+    KEY { DATE_OF_MARRIAGE , SPOUSE_B }
+    KEY { SPOUSE_B , SPOUSE_A } ;
+```
+
+Tôi sẽ kết thúc phần này với một số điểm khác. Thứ nhất, chú ý rằng khái niệm khóa áp dụng cho relvar, không phải quan hệ. Tại sao? Vì nói một cái gì đó là khóa nghĩa là đang chỉ ra một ràng buộc toàn vẹn&mdash;cụ thể là ràng buộc tính duy nhất&mdash;và ràng buộc toàn vẹn áp dụng cho biến, không phải giá trị. (Ràng buộc toàn vẹn cưỡng chế các cập nhật, và cập nhật là áp dụng cho biến, không phải giá trị. Xem thêm trong chương 6.)
+
+Thứ hai, nếu `R` là một relvar, thì `R` phải có ít nhất một khóa. Lý do giá trị của `R` là các quan hệ, mà quan hệ theo định nghĩa không chứa tuple trùng lặp; vì thế, ít nhất kết hợp tất cả thuộc tính của `R` phải có tính duy nhất.
+
+Thứ ba, chú ý rằng các giá trị của khóa là tuple. Ví dụ với relvar `S`, nó có khóa `{SNO}` (chỉ một phần tử), giá trị của khóa này cho một tuple nào đó&mdash;giả sử, cho supplier `S1`&mdash;là:
+
+```
+TUPLE { SNO SNO('S1') }
+```
+
+(Nhớ lại từ Chương 3 rằng tập hợp con của một tuple cũng là một tuple.) Đương nhiên trong thực tế chúng ta hay nói, một cách không chính thức, rằng giá trị của khóa chỉ là `S1`&mdash;hay `SNO('S1')`&mdash;nhưng nó không phải như thế.
+
+Từ điểm thứ ba này: cần nói rõ rằng khái niệm khóa, giống rất nhiều những thứ khác trong mô hình quan hệ, đều dựa vào khái niệm cơ bản *tính bằng của tuple*. Tức là, để thực hiện ràng buộc tính duy nhất, chúng ta cần chỉ ra được khi nào hai giá trị khóa bằng nhau, và đây đúng là vấn đề bằng của tuple&mdash;kể cả khi, như với relvar `S`, các tuple chỉ có degree 1 và "trông giống" như một giá trị vô hướng.
+
+Điểm cuối cùng liên quan tới khái niệm *phụ thuộc hàm (functional dependency)*. Giả sử `K` là khóa cho relvar `R`, và `A` là một thuộc tính của `R`. Thì `R` phải thỏa mãn phụ thuộc hàm:
+
+&nbsp;&nbsp;&nbsp;&nbsp;<code>K &rarr; A</code>
+
+Đọc là `K` xác định `A`.
+
+Nói chung, phụ thuộc hàm <code>K &rarr; A</code> nghĩa là nếu hai tuple của `R` có cùng giá trị `K`, thì chúng cũng phải có cùng giá trị `A`. Nhưng nếu hai tuple có cùng giá trị `K`, trong khi `K` là khóa, thì theo định nghĩa chúng cùng là một tuple!&mdash;do đó chúng *phải* có cùng giá trị `A`. Nói cách khác, nói chung: chúng ta luôn luôn có "mũi tên phụ thuộc hàm" đi từ khóa trỏ tới tất cả mọi thứ khác trong relvar.
