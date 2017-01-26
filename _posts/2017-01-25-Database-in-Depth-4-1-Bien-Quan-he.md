@@ -84,7 +84,7 @@ VAR MARRIAGE BASE RELATION
     KEY { SPOUSE_B , SPOUSE_A } ;
 ```
 
-Tôi sẽ kết thúc phần này với một số điểm khác. Thứ nhất, chú ý rằng khái niệm khóa áp dụng cho relvar, không phải quan hệ. Tại sao? Vì nói một cái gì đó là khóa nghĩa là đang chỉ ra một ràng buộc toàn vẹn&mdash;cụ thể là ràng buộc tính duy nhất&mdash;và ràng buộc toàn vẹn áp dụng cho biến, không phải giá trị. (Ràng buộc toàn vẹn cưỡng chế các cập nhật, và cập nhật là áp dụng cho biến, không phải giá trị. Xem thêm trong chương 6.)
+Tôi sẽ kết thúc phần này với một số điểm. Thứ nhất, chú ý rằng khái niệm khóa áp dụng cho relvar, không phải quan hệ. Tại sao? Vì nói một cái gì đó là khóa nghĩa là đang chỉ ra một ràng buộc toàn vẹn&mdash;cụ thể là ràng buộc tính duy nhất&mdash;và ràng buộc toàn vẹn áp dụng cho biến, không phải giá trị. (Ràng buộc toàn vẹn cưỡng chế các cập nhật, và cập nhật là áp dụng cho biến, không phải giá trị. Xem thêm trong chương 6.)
 
 Thứ hai, nếu `R` là một relvar, thì `R` phải có ít nhất một khóa. Lý do giá trị của `R` là các quan hệ, mà quan hệ theo định nghĩa không chứa tuple trùng lặp; vì thế, ít nhất kết hợp tất cả thuộc tính của `R` phải có tính duy nhất.
 
@@ -96,7 +96,7 @@ TUPLE { SNO SNO('S1') }
 
 (Nhớ lại từ Chương 3 rằng tập hợp con của một tuple cũng là một tuple.) Đương nhiên trong thực tế chúng ta hay nói, một cách không chính thức, rằng giá trị của khóa chỉ là `S1`&mdash;hay `SNO('S1')`&mdash;nhưng nó không phải như thế.
 
-Từ điểm thứ ba này: cần nói rõ rằng khái niệm khóa, giống rất nhiều những thứ khác trong mô hình quan hệ, đều dựa vào khái niệm cơ bản *tính bằng của tuple*. Tức là, để thực hiện ràng buộc tính duy nhất, chúng ta cần chỉ ra được khi nào hai giá trị khóa bằng nhau, và đây đúng là vấn đề bằng của tuple&mdash;kể cả khi, như với relvar `S`, các tuple chỉ có degree 1 và "trông giống" như một giá trị vô hướng.
+Từ điểm thứ ba này: cần nói rõ rằng khái niệm khóa, giống rất nhiều những thứ khác trong mô hình quan hệ, đều dựa vào khái niệm cơ bản *so sánh bằng tuple*. Tức là, để thực hiện ràng buộc tính duy nhất, chúng ta cần chỉ ra được khi nào hai giá trị khóa bằng nhau, và đây chính là vấn đề bằng của tuple&mdash;kể cả khi, như trường hợp relvar `S`, các tuple chỉ có degree 1 và "trông giống" như một giá trị vô hướng.
 
 Điểm cuối cùng liên quan tới khái niệm *phụ thuộc hàm (functional dependency)*. Giả sử `K` là khóa cho relvar `R`, và `A` là một thuộc tính của `R`. Thì `R` phải thỏa mãn phụ thuộc hàm:
 
@@ -105,3 +105,34 @@ Từ điểm thứ ba này: cần nói rõ rằng khái niệm khóa, giống r�
 Đọc là `K` xác định `A`.
 
 Nói chung, phụ thuộc hàm <code>K &rarr; A</code> nghĩa là nếu hai tuple của `R` có cùng giá trị `K`, thì chúng cũng phải có cùng giá trị `A`. Nhưng nếu hai tuple có cùng giá trị `K`, trong khi `K` là khóa, thì theo định nghĩa chúng cùng là một tuple!&mdash;do đó chúng *phải* có cùng giá trị `A`. Nói cách khác, nói chung: chúng ta luôn luôn có "mũi tên phụ thuộc hàm" đi từ khóa trỏ tới tất cả mọi thứ khác trong relvar.
+
+## Nói thêm về Khóa ngoại
+
+Tôi đã giải thích ý tưởng chung về khóa ngoại trong Chương 1, nhưng dưới đây là một định nghĩa chính xác (chú ý một lần nữa lại dựa vào so sánh bằng tuple):
+
+<div class="definition">
+  <strong>Định nghĩa</strong>: Giả sử <em>R1</em> và <em>R2</em> là hai relvar, có thể là một, và <em>K</em> là khóa của <em>R1</em>. Giả sử <em>FK</em> là một tập con của heading của <em>R2</em> mà, có thể sau khi đổi tên các thuộc tính, bao gồm đúng các thuộc tính của <em>K</em>. Thì <em>FK</em> là một <em>khóa ngoại</em> khi và chỉ khi, tất cả tuple trong <em>R2</em> phải có một giá trị <em>FK</em> bằng với một giá trị <em>K</em> (là duy nhất) trong một tuple nào đó trong <em>R1</em>.
+</div>
+
+Như chúng ta biết, trong cơ sở dữ liệu suppliers-and-parts, `{SNO}` và `{PNO}` là hai khóa ngoại trong relvar `SP`, lần lượt tham chiếu tới khóa ứng cử&mdash;thực tế, là khóa chính&mdash;trong relvar `S` và `P`. Đây là một ví dụ khác:
+
+```
+VAR EMP BASE RELATION
+  { ENO ENO, ..., MNO ENO, ... }
+    KEY { ENO }
+    FOREIGN KEY { RENAME ( MNO AS ENO ) } REFERENCES EMP ;
+```
+
+Thuộc tính `MNO` ở đây biểu diễn cho employee number cho manager của employee; nên, "relvar tham chiếu" (`R2` trong định nghĩa) và "relvar được tham chiếu" (`R1` trong định nghĩa) trong ví dụ này là một. Ví dụ, một tuple cho employee `E3` có thể có giá trị `MNO` là `E2`, tạo nên một tham chiếu tới tuple cho employee `E2`.
+
+Ngoài ra, tôi nên nói ra rằng mô hình quan hệ ban đầu thiết kế yêu cầu khóa ngoại phải khớp không đơn giản chỉ với khóa ứng cử, mà phải là *khóa chính* trong relvar được tham chiếu. Tuy nhiên, tôi đã đưa ra những lý do trong Chương 1 rằng không có lý luận chắc chắn để chọn một khóa ứng cử làm khóa chính; theo đó, nên tôi không muốn khẳng định khóa ngoại nhất định phải khớp với khóa chính. (Tôi đồng ý với SQL về điểm này.)
+
+SQL có hỗ trợ không chỉ khóa ngoại, mà còn hỗ trợ các *hành động tham chiếu (referential action)* liên kết với khóa ngoại, như CASCADE (có thể là một phần trong một mệnh đề ON DELETE hay ON UPDATE). Ví dụ, lệnh CREATE TABLE cho shipments có thể bao gồm:
+
+```
+FOREIGN KEY ( SNO ) REFFERENCES S ( SNO ) ON DELETE CASCADE
+```
+
+Với một định nghĩa như thế này, xóa một supplier kéo theo xóa tất cả shipments cho supplier đó.
+
+Điểm cuối cùng để kết thúc phần này: Tôi thảo luận khóa ngoại vì nó cực kỳ hữu dụng, và cũng vì nó thuộc vào mô hình quan hệ. Nhưng tôi nên nhấn mạnh rằng nó không thực sự là cơ sở&mdash;nó chỉ là cách viết nhanh cho một ràng buộc toàn vẹn thường phải có trong thực tế. (Cũng có thể nói tương tự như vậy cho khóa ứng cử, ngoại trừ nó không phổ biến.)
