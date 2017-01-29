@@ -40,7 +40,7 @@ CREATE VIEW SST_PARIS
        WHERE CITY = 'Paris' ) ;
 ```
 
-Về nguyên tắc, bạn có thể thao tác trên view như thể chúng là các quan hệ cơ sở, nhưng chúng *không* phải là quan hệ cơ sở; thay vào đó, bạn có thể coi một view là "có thực"&mdash;thật vậy, bạn có thể coi một view là một quan hệ cơ sở được tạo ra bởi một biểu thức quan hệ&mdash;tại thời điểm chúng được tham chiếu. (Dù vậy tôi cũng phải nhấn mạnh rằng, coi view là có thực khi chúng được tham chiếu chỉ thuần túy là khái niệm; đây là cách nghĩ, không phải những gì thực sự diễn ra; thực tế các toán tử cập nhật không hoạt động với view. Cách view thực sự hoạt động như thế nào sẽ được giải thích trong chương 4.)
+Về nguyên tắc, bạn có thể thao tác trên view như thể chúng là các quan hệ cơ sở, nhưng chúng *không* phải là quan hệ cơ sở; thay vào đó, bạn có thể coi một view là "có thực"&mdash;thật vậy, bạn có thể coi một view là một quan hệ cơ sở được tạo ra bởi một biểu thức quan hệ&mdash;tại thời điểm chúng được tham chiếu. (Dù vậy tôi cũng phải nhấn mạnh rằng, coi view là có thực khi chúng được tham chiếu chỉ thuần túy là khái niệm; đây là cách nghĩ, không phải những gì thực sự diễn ra; và các thao tác cập nhật trên quan hệ cơ sở hoàn toàn không hoạt động trên view. Cách view thực sự hoạt động như thế nào sẽ được giải thích trong chương 4.)
 
 Có một điểm quan trọng tôi cần làm rõ ở đây. Có lẽ bạn thường nghe thấy mọi người miêu tả sự khác nhau giữa quan hệ cơ sở và view như sau:
 
