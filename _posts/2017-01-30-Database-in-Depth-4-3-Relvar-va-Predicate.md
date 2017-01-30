@@ -7,13 +7,13 @@ title: 'Database in Depth 4.3: Relvar và Predicate'
 
 Xét relvar suppliers `S`. Giống tất cả relvar khác, relvar này biểu diễn một phần gì đó trong thế giới thực. Cụ thể hơn: heading của relvar này biểu diễn một *predicate*, là một phát biểu tổng quát về một phần nào đó trong thế giới thực (nó tổng quát vì nó là *parameterized (có tham số truyền vào)*). Predicate trông như sau:
 
-*Supplier `SNO` trong hợp đồng, có tên là `SNAME`, có trạng thái `STATUS`, và có vị trí tại thành phố `CITY`.*
+&nbsp;&nbsp;&nbsp;&nbsp;*Supplier `SNO` trong hợp đồng, có tên là `SNAME`, có trạng thái `STATUS`, và có vị trí tại thành phố `CITY`.*
 
 Predicate này là *sự diễn giải (interpretation)*, hay *sự diễn giải có dụng ý (intended interpretation)*&mdash;nói cách khác, là *ý nghĩa*, còn gọi là *intension*[^intension] (chú ý chính tả)&mdash;cho relvar `S`.
 
 Bạn có thể hiểu một predicate là một *hàm chân trị*. Giống tất cả hàm khác, nó có một tập tham số (parameter), nó trả về một kết quả khi được gọi, và (vì giá trị trả về là giá trị chân lý) kết quả là TRUE hoặc FALSE. Với predicate ví dụ, các tham số là `SNO`, `SNAME`, `STATUS`, và `CITY` (tương ứng với các thuộc tính trong relvar, đương nhiên). Khi chúng ta gọi hàm này&mdash;*tạo predicate (instantiate the predicate)*&mdash;chúng ta thay thế đối số (argument) cho tham số. Giả sử chúng ta thay `S1`, `Smith`, `20`, và `London`. Thì chúng ta thu được *phát biểu (proposition)* sau:
 
-*Supplier `S1` trong hợp đồng, có tên là `Smith`, có trạng thái `20`, và có vị trí tại thành phố `London`.*
+&nbsp;&nbsp;&nbsp;&nbsp;*Supplier `S1` trong hợp đồng, có tên là `Smith`, có trạng thái `20`, và có vị trí tại thành phố `London`.*
  
 Nói chung, một proposition là một phát biểu (không phải tổng quát) phải là đúng hoặc sai. Ví dụ:
 
@@ -21,7 +21,7 @@ Nói chung, một proposition là một phát biểu (không phải tổng quát
 
  2. William Shakespeare đã viết *The Monkey Wrench Gang*.
 
-Phát biểu thứ nhất là đúng và thứ hai là sai. Tuy nhiên, những phát biểu mà có liên kết với relvar chỉ là những phát biểu đúng, tôi sẽ giải thích:
+Phát biểu thứ nhất là đúng và thứ hai là sai. Tuy nhiên, những phát biểu mà có liên kết với relvar chỉ là những phát biểu đúng:
 
  * Thứ nhất, tất cả relvar đều liên kết với một predicate, gọi là *relvar predicate*.
 
@@ -31,11 +31,11 @@ Phát biểu thứ nhất là đúng và thứ hai là sai. Tuy nhiên, những 
 
 Do đó, với relvar `S`, chúng ta có các proposition sau:
 
-*Supplier `S1` trong hợp đồng, có tên là `Smith`, có trạng thái `20`, và có vị trí tại thành phố `London`.*
+&nbsp;&nbsp;&nbsp;&nbsp;*Supplier `S1` trong hợp đồng, có tên là `Smith`, có trạng thái `20`, và có vị trí tại thành phố `London`.*
  
-*Supplier `S2` trong hợp đồng, có tên là `Jones`, có trạng thái `10`, và có vị trí tại thành phố `Paris`.*
+&nbsp;&nbsp;&nbsp;&nbsp;*Supplier `S2` trong hợp đồng, có tên là `Jones`, có trạng thái `10`, và có vị trí tại thành phố `Paris`.*
  
-*Supplier `S3` trong hợp đồng, có tên là `Blake`, có trạng thái `30`, và có vị trí tại thành phố `Paris`.*
+&nbsp;&nbsp;&nbsp;&nbsp;*Supplier `S3` trong hợp đồng, có tên là `Blake`, có trạng thái `30`, và có vị trí tại thành phố `Paris`.*
 
 Vân vân.
 
@@ -65,11 +65,11 @@ TUPLE { SNO s , SNAME n , STATUS t , CITY c}
 
 đang tồn tại trong `S` với một giá trị `CITY` nào đó, `c`. Nói cách khác, kết quả của biểu thức quan hệ trên biểu diễn một extension (tập hợp các proposition trả về TRUE tại thời điểm hiện tại) của một predicate có dạng:
 
-*Tồn tại một thành phố `CITY` nào đó sao cho tại đó có supplier `SNO` có trong hợp đồng, có tên là `SNAME`, có trạng thái `STATUS`.*
+&nbsp;&nbsp;&nbsp;&nbsp;*Tồn tại một thành phố `CITY` nào đó sao cho tại đó có supplier `SNO` có trong hợp đồng, có tên là `SNAME`, có trạng thái `STATUS`.*
 
 Predicate này biểu diễn ý nghĩa của biểu thức quan hệ `S{SNO,SNAME,STATUS}`. Nó chỉ có ba tham số và quan hệ tương ứng (projection của suppliers trên tất cả thuộc tính ngoại trừ `CITY`) chỉ có ba thuộc tính&mdash;`CITY` *không* phải là tham số, mà gọi là một *bound variable*[^bound-variable], theo thực tế rằng nó "được định lượng (quantified)", bởi cụm *Tồn tại một thành phố nào đó*. [^existential-quantifier] Có một cách để thấy rõ hơn&mdash;rằng predicate chỉ có ba tham số, không phải bốn&mdash;là quan sát predicate sau tương đương về logic với predicate đang xét:
 
-*Supplier `SNO` trong hợp đồng, có tên là `SNAME`, có trạng thái `STATUS`, và có vị trí tại một thành phố nào đó (ở một nơi nào đó, nhưng chúng ta không biết là nơi nào).*
+&nbsp;&nbsp;&nbsp;&nbsp;*Supplier `SNO` trong hợp đồng, có tên là `SNAME`, có trạng thái `STATUS`, và có vị trí tại một thành phố nào đó (ở một nơi nào đó, nhưng chúng ta không biết là nơi nào).*
 
 Từ tất cả những điều trên, một view biểu diễn một predicate. Ví dụ, nếu view `SST` được định nghĩa như sau:
 
@@ -79,7 +79,7 @@ VAR SST VIRTUAL ( S { SNO , SNAME , STATUS } ) ;
 
 thì relvar predicate cho `SST` chính là:
 
-*Supplier `SNO` trong hợp đồng, có tên là `SNAME`, có trạng thái `STATUS`, và có vị trí tại một thành phố nào đó.*
+&nbsp;&nbsp;&nbsp;&nbsp;*Supplier `SNO` trong hợp đồng, có tên là `SNAME`, có trạng thái `STATUS`, và có vị trí tại một thành phố nào đó.*
 
 Còn một điểm cuối cùng tôi muốn nói về predicate và proposition. Tôi đã nói predicate có một tập tham số. Tuy nhiên, như thường lệ, tập hợp *có thể* rỗng&mdash;và nếu đúng thế, predicate trở thành proposition! (Chắc chắn nó là một phát biểu phải đúng hoặc sai.) Nói cách khác, một proposition là một predicate *suy biến (degenerate)*; tất cả proposition đều là predicate, nhưng đa số predicate *không phải* proposition.
 
