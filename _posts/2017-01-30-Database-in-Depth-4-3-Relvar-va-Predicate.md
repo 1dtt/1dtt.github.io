@@ -5,7 +5,7 @@ title: 'Database in Depth 4.3: Relvar và Predicate'
 
 Đây là phần quan trọng nhất trong chương này. Bản chất của nó là: có một cách khác để hiểu relvar. Ý tôi là, đa số mọi người đều nghĩ về relvar chỉ là tập tin (tập chứa thông tin, file)&mdash;một tập tin khá trừu tượng (abstract, không có chi tiết về mối quan hệ), (có thể từ *disciplined (có tổ chức, có nguyên tắc)* đúng hơn so với từ trừu tượng), dẫu sao vẫn là tập tin. Nhưng có một cách khác nhìn nhận relvar, một cách mà tôi tin rằng sẽ đưa tới một hiểu biết sâu hơn nhiều về những gì thực sự diễn ra. Như sau.
 
-Xét relvar suppliers `S`. Giống tất cả relvar khác, relvar này biểu diễn một phần gì đó trong thế giới thực. Cụ thể hơn: heading của relvar này biểu diễn một *predicate*, là một phát biểu tổng quát về một phần nào đó trong thế giới thực (nó tổng quát vì nó là *parameterized (có tham số truyền vào)*). Predicate trông như sau:
+Xét relvar suppliers `S`. Giống tất cả relvar khác, relvar này biểu diễn một thành phần nào đó trong thế giới thực. Cụ thể hơn: heading của relvar này biểu diễn một *predicate*, là một phát biểu tổng quát về một thành phần nào đó trong thế giới thực (nó tổng quát vì nó là *parameterized (có tham số truyền vào)*). Predicate trông như sau:
 
 &nbsp;&nbsp;&nbsp;&nbsp;*Supplier `SNO` trong hợp đồng, có tên là `SNAME`, có trạng thái `STATUS`, và có vị trí tại thành phố `CITY`.*
 
